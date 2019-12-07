@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+<GridPane fx:controller="com.procedure.demo.schedulingapp.uiController.MainViewController"
+          xmlns:fx="http://javafx.com/fxml" alignment="center"
+          hgap="10" vgap="10">
+    <padding>
+        <Insets top="40" right="40" bottom="100" left="40"/>
+    </padding>
+    <columnConstraints>
+        <ColumnConstraints minWidth="200" prefWidth="250"
+                           maxWidth="Infinity" halignment="CENTER"></ColumnConstraints>
+        <ColumnConstraints minWidth="200" prefWidth="250"
+                           maxWidth="Infinity" halignment="CENTER"></ColumnConstraints>
+        <ColumnConstraints minWidth="200" prefWidth="250"
+                           maxWidth="Infinity" halignment="CENTER"></ColumnConstraints>
+    </columnConstraints>
+    <!-- Add Header Label -->
+    <Label text="Procedure Scheduling Application" GridPane.columnIndex="0"
+           GridPane.rowIndex="0" GridPane.columnSpan="3"
+           GridPane.rowSpan="1" GridPane.halignment="CENTER">
+        <font>
+            <Font name="Arial" size="24"></Font>
+        </font>
+        <GridPane.margin>
+            <Insets top="20" right="0" bottom="20" left="0"></Insets>
+        </GridPane.margin>
+    </Label>
+    <!-- Add Submit Button -->
+    <Button fx:id="addPatientBtn" text="New Patient"
+            prefWidth="200" prefHeight="70"
+            GridPane.columnIndex="0" GridPane.rowIndex="2"
+            GridPane.halignment="CENTER"
+            onAction="#changeToPatient">
+        <GridPane.margin>
+            <Insets top="20" right="0" bottom="20" left="0"></Insets>
+        </GridPane.margin>
+    </Button>
+    <Button fx:id="schProBtn" text="Schedule Procedure"
+            prefWidth="200" prefHeight="70"
+            GridPane.columnIndex="1" GridPane.rowIndex="2"
+            GridPane.halignment="CENTER"
+            onAction="#changeToProcedure">
+        <GridPane.margin>
+            <Insets top="20" right="0" bottom="20" left="0"></Insets>
+        </GridPane.margin>
+    </Button>
+    <Button fx:id="viewProBtn" text="View Procedures"
+            prefWidth="200" prefHeight="70"
+            GridPane.columnIndex="2" GridPane.rowIndex="2"
+            GridPane.halignment="CENTER"
+            onAction="#viewProcedures">
+        <GridPane.margin>
+            <Insets top="20" right="0" bottom="20" left="0"></Insets>
+        </GridPane.margin>
+    </Button>
+</GridPane>

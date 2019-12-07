@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+<GridPane fx:controller="com.procedure.demo.schedulingapp.uiController.ProceduresListViewController"
+          xmlns:fx="http://javafx.com/fxml" alignment="center"
+          hgap="10" vgap="10">
+    <padding>
+        <Insets top="40" right="40" bottom="40" left="40"/>
+    </padding>
+    <columnConstraints>
+        <ColumnConstraints minWidth="100" prefWidth="100"
+                           maxWidth="Infinity" halignment="RIGHT"></ColumnConstraints>
+        <ColumnConstraints minWidth="200" prefWidth="200"
+                           maxWidth="Infinity" hgrow="ALWAYS"></ColumnConstraints>
+    </columnConstraints>
+    <!-- Add Header Label -->
+    <Label text="Procedures List" GridPane.columnIndex="0"
+           GridPane.rowIndex="0" GridPane.columnSpan="2"
+           GridPane.rowSpan="1" GridPane.halignment="CENTER">
+        <font>
+            <Font name="Arial" size="24"></Font>
+        </font>
+        <GridPane.margin>
+            <Insets top="20" right="0" bottom="20" left="0"></Insets>
+        </GridPane.margin>
+    </Label>
+    <!-- Add Name Label -->
+    <TableView fx:id="proceduresTable" GridPane.columnIndex="0"
+               GridPane.rowIndex="1" GridPane.columnSpan="2"
+               GridPane.rowSpan="1" GridPane.halignment="CENTER"
+               prefWidth="Infinity">
+        <columns>
+            <TableColumn fx:id="procedureStartDate"
+                         text="Start Time"/>
+            <TableColumn fx:id="procedurePatient" prefWidth="200"
+                         text="Patient"/>
+            <TableColumn fx:id="procedureDoctor" prefWidth="200"
+                         text="Doctor"/>
+            <TableColumn fx:id="procedureRoom" prefWidth="200"
+                         text="Room"/>
+            <TableColumn fx:id="procedureStatus" prefWidth="200"
+                         text="Status"/>
+            <TableColumn fx:id="procedureDescription" prefWidth="350"
+                         text="Description"/>
+        </columns>
+    </TableView>
+
+
+    <Button fx:id="backButton" text="Back"
+            prefWidth="200" prefHeight="40" defaultButton="true"
+            GridPane.columnIndex="0" GridPane.rowIndex="4"
+            GridPane.columnSpan="1" GridPane.rowSpan="1"
+            GridPane.halignment="CENTER"
+            onAction="#backNavigator">
+        <GridPane.margin>
+            <Insets top="20" right="0" bottom="20" left="0"></Insets>
+        </GridPane.margin>
+    </Button>
+</GridPane>
