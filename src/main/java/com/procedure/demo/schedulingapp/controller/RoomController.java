@@ -13,6 +13,10 @@ public class RoomController {
     @Autowired
     RoomService roomService;
 
+    /**
+     * A method that returns a list of all available rooms
+     * @return
+     */
     public List<Room> getAllRooms() {
         return roomService.getAllRooms();
     }

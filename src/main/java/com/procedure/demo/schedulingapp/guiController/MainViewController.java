@@ -1,6 +1,5 @@
-package com.procedure.demo.schedulingapp.uiController;
+package com.procedure.demo.schedulingapp.guiController;
 
-import com.procedure.demo.schedulingapp.utilities.NewSceneHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
@@ -13,11 +12,11 @@ import org.springframework.stereotype.Component;
 @Component
 public class MainViewController {
     @FXML
-    public Button addPatientBtn;
+    private Button addPatientBtn;
     @FXML
-    public Button schProBtn;
+    private Button scheduleProcedureBtn;
     @FXML
-    public Button viewProBtn;
+    private Button viewProceduresBtn;
 
     @Value("classpath:/ui/fxml/newPatientView.fxml")
     private Resource newPatientResource;
@@ -33,22 +32,36 @@ public class MainViewController {
     }
 
 
+    /**
+     * A method to navigate to newPatientView.fxml view
+     *
+     * @throws Exception
+     */
     @FXML
     private void changeToPatient() throws Exception {
         Stage scene = (Stage) addPatientBtn.getScene().getWindow();
         new NewSceneHandler().sceneHandler(newPatientResource, scene, applicationContext);
     }
 
-
+    /**
+     * A method to navigate to scheduleProcedureView.fxml view
+     *
+     * @throws Exception
+     */
     @FXML
     private void changeToProcedure() throws Exception {
-        Stage scene = (Stage) schProBtn.getScene().getWindow();
+        Stage scene = (Stage) scheduleProcedureBtn.getScene().getWindow();
         new NewSceneHandler().sceneHandler(scheduleProcedureResource, scene, applicationContext);
     }
 
+    /**
+     * A method to navigate to proceduresListView.fxml view
+     *
+     * @throws Exception
+     */
     @FXML
     private void viewProcedures() throws Exception {
-        Stage scene = (Stage) viewProBtn.getScene().getWindow();
+        Stage scene = (Stage) viewProceduresBtn.getScene().getWindow();
         new NewSceneHandler().sceneHandler(proceduresListResource, scene, applicationContext);
     }
 }

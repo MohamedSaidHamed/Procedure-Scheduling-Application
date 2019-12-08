@@ -1,4 +1,4 @@
-package com.procedure.demo.schedulingapp.utilities;
+package com.procedure.demo.schedulingapp.guiController;
 
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
@@ -111,7 +111,7 @@ public class TimeSpinner extends Spinner<LocalTime> {
 
         };
 
-        // The textFormatter both manages the text <-> LocalTime conversion,
+        // The textFormatter both manages the text, LocalTime conversion,
         // and vetoes any edits that are not valid. We just make sure we have
         // two colons and only digits in between:
 
@@ -151,12 +151,6 @@ public class TimeSpinner extends Spinner<LocalTime> {
 
         this.setValueFactory(valueFactory);
         this.getEditor().setTextFormatter(textFormatter);
-
-        // Update the mode when the user interacts with the editor.
-        // This is a bit of a hack, e.g. calling spinner.getEditor().positionCaret()
-        // could result in incorrect state. Directly observing the caretPostion
-        // didn't work well though; getting that to work properly might be
-        // a better approach in the long run.
         this.getEditor().addEventHandler(InputEvent.ANY, e -> {
             int caretPos = this.getEditor().getCaretPosition();
             int hrIndex = this.getEditor().getText().indexOf(':');

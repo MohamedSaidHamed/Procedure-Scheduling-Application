@@ -13,6 +13,11 @@ public class DoctorController {
     DoctorService doctorService;
 
 
+    /**
+     * A method that returns a list of all available doctors
+     *
+     * @return
+     */
     public List<Doctor> getAllDoctors() {
         return doctorService.findAllDoctors();
     }

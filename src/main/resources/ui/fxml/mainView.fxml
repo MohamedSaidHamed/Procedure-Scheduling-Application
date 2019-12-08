@@ -5,7 +5,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.Font?>
-<GridPane fx:controller="com.procedure.demo.schedulingapp.uiController.MainViewController"
+<GridPane fx:controller="com.procedure.demo.schedulingapp.guiController.MainViewController"
           xmlns:fx="http://javafx.com/fxml" alignment="center"
           hgap="10" vgap="10">
     <padding>
@@ -30,7 +30,7 @@
             <Insets top="20" right="0" bottom="20" left="0"></Insets>
         </GridPane.margin>
     </Label>
-    <!-- Add Submit Button -->
+    <!-- Add New Patient Button -->
     <Button fx:id="addPatientBtn" text="New Patient"
             prefWidth="200" prefHeight="70"
             GridPane.columnIndex="0" GridPane.rowIndex="2"
@@ -40,7 +40,8 @@
             <Insets top="20" right="0" bottom="20" left="0"></Insets>
         </GridPane.margin>
     </Button>
-    <Button fx:id="schProBtn" text="Schedule Procedure"
+    <!-- Add New Procedure Button -->
+    <Button fx:id="scheduleProcedureBtn" text="Schedule Procedure"
             prefWidth="200" prefHeight="70"
             GridPane.columnIndex="1" GridPane.rowIndex="2"
             GridPane.halignment="CENTER"
@@ -49,7 +50,8 @@
             <Insets top="20" right="0" bottom="20" left="0"></Insets>
         </GridPane.margin>
     </Button>
-    <Button fx:id="viewProBtn" text="View Procedures"
+    <!-- Add Procedures List Button -->
+    <Button fx:id="viewProceduresBtn" text="View Procedures"
             prefWidth="200" prefHeight="70"
             GridPane.columnIndex="2" GridPane.rowIndex="2"
             GridPane.halignment="CENTER"

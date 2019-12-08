@@ -1,11 +1,8 @@
-package com.procedure.demo.schedulingapp.uiController;
+package com.procedure.demo.schedulingapp.guiController;
 
 import com.procedure.demo.schedulingapp.controller.PatientController;
 import com.procedure.demo.schedulingapp.entity.Patient;
 import com.procedure.demo.schedulingapp.utilities.DateUtil;
-import com.procedure.demo.schedulingapp.utilities.DisplayUtil;
-import com.procedure.demo.schedulingapp.utilities.ExceptionHandler;
-import com.procedure.demo.schedulingapp.utilities.NewSceneHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
@@ -22,7 +19,7 @@ public class NewPatientViewController {
     @FXML
     public Button backButton;
     @FXML
-    private ComboBox<String> sexCombo;
+    private ComboBox<String> sexList;
     @FXML
     private TextField fullNameField;
     @FXML
@@ -38,28 +35,37 @@ public class NewPatientViewController {
         this.applicationContext = applicationContext;
     }
 
+    /**
+     * Initialize method, filling out the sex comboBox with gender types
+     */
     @FXML
     public void initialize() {
-        sexCombo.getItems().setAll("Male", "Female", "Unknown");
+        sexList.getItems().setAll("Male", "Female", "Unknown");
     }
 
+    /**
+     * A method to save new patient.
+     * Extracting the view components' values and create a new patient instance to be saved.
+     */
     @FXML
     private void savePatient() {
-        if (fullNameField.getText().trim().isEmpty()) {
-            throw new ExceptionHandler("Patient name is required");
-        }
         Patient patient = new Patient();
-        patient.setSex(sexCombo.getSelectionModel().getSelectedItem());
+        patient.setSex(sexList.getSelectionModel().getSelectedItem());
         patient.setName(fullNameField.getText());
-        patient.setDob(new DateUtil().convertToDateViaInstant(dob.getValue()));
+        patient.setDob(DateUtil.convertToDateViaInstant(dob.getValue()));
         patientController.updatePatient(patient);
-        DisplayUtil.showAlert(Alert.AlertType.INFORMATION, "Registration Successful!",
-                "Patient saved successfully");
+        NewSceneHandler.showAlert(Alert.AlertType.INFORMATION, "Registration Successful!",
+                "Patient " + patient.getName() + " saved successfully");
         fullNameField.clear();
-        sexCombo.getSelectionModel().clearSelection();
+        sexList.getSelectionModel().clearSelection();
         dob.setValue(null);
     }
 
+    /**
+     * A method to navigate to the main view
+     *
+     * @throws Exception
+     */
     @FXML
     private void backNavigator() throws Exception {
         Stage scene = (Stage) backButton.getScene().getWindow();

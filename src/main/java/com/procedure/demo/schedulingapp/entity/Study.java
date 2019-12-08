@@ -9,6 +9,7 @@ public class Study {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+    @Lob
     @Column(nullable = false)
     private String description;
     @Column(nullable = false)

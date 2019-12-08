@@ -1,4 +1,4 @@
-package com.procedure.demo.schedulingapp.uiController;
+package com.procedure.demo.schedulingapp.guiController;
 
 import com.procedure.demo.schedulingapp.controller.DoctorController;
 import com.procedure.demo.schedulingapp.controller.PatientController;
@@ -6,13 +6,8 @@ import com.procedure.demo.schedulingapp.controller.RoomController;
 import com.procedure.demo.schedulingapp.controller.StudyController;
 import com.procedure.demo.schedulingapp.entity.*;
 import com.procedure.demo.schedulingapp.utilities.DateUtil;
-import com.procedure.demo.schedulingapp.utilities.NewSceneHandler;
-import com.procedure.demo.schedulingapp.utilities.TimeSpinner;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.TextArea;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -20,8 +15,8 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Component;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.time.LocalTime;
 import java.util.List;
 
 @Component
@@ -63,8 +58,13 @@ public class ScheduleProcedureViewController {
         this.applicationContext = applicationContext;
     }
 
+    /**
+     * Initialize and retrieve available rooms, doctors and patients and assign them to the corresponding comboboxes
+     *
+     * @throws Exception
+     */
     @FXML
-    public void initialize() {
+    private void initialize() {
         List<Room> rooms = roomController.getAllRooms();
         List<Patient> patients = patientController.getAllPatients();
         List<Doctor> doctors = doctorController.getAllDoctors();
@@ -72,23 +72,43 @@ public class ScheduleProcedureViewController {
         patientField.getItems().addAll(patients);
         doctorField.getItems().addAll(doctors);
         statusCombo.getItems().setAll(StudyStatus.values());
+        startDate.setValue(LocalDate.now());
+        endDate.setValue(LocalDate.now());
     }
 
+    /**
+     * A method to save new study.
+     * Extracting the view components' values and create a new study instance to be saved.
+     */
     @FXML
-    private void saveProcedure() throws Exception{
+    private void saveProcedure() {
         Study study = new Study();
         study.setDescription(desc.getText());
         study.setPatient(patientField.getSelectionModel().getSelectedItem());
         study.setDoctor(doctorField.getSelectionModel().getSelectedItem());
         study.setRoom(roomField.getSelectionModel().getSelectedItem());
         study.setStatus(statusCombo.getSelectionModel().getSelectedItem());
-        study.setPlannedStartTime(DateUtil.convertToDateViaSqlTimestamp(LocalDateTime.of(startDate.getValue(), startTime.getValue())));
+        if (startDate.getValue() != null && startDate.getValue() != null) {
+            study.setPlannedStartTime(DateUtil.convertToDateViaSqlTimestamp(LocalDateTime.of(startDate.getValue(), startTime.getValue())));
+        }
         if (endDate.getValue() != null && endTime.getValue() != null) {
             study.setPlannedEndTime(DateUtil.convertToDateViaSqlTimestamp(LocalDateTime.of(endDate.getValue(), endTime.getValue())));
         }
         studyController.updateStudy(study);
+        NewSceneHandler.showAlert(Alert.AlertType.INFORMATION, "Procedure Planned!",
+                "Procedure for " + study.getPatient().getName() + " saved successfully");
+        patientField.getSelectionModel().clearSelection();
+        doctorField.getSelectionModel().clearSelection();
+        roomField.getSelectionModel().clearSelection();
+        statusCombo.getSelectionModel().clearSelection();
+        desc.setText("");
     }
 
+    /**
+     * A method to navigate to the main view
+     *
+     * @throws Exception
+     */
     @FXML
     private void backNavigator() throws Exception {
         Stage scene = (Stage) backButton.getScene().getWindow();

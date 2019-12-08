@@ -21,6 +21,10 @@ public class Patient {
         return pid;
     }
 
+    public void setPid(Integer pid) {
+        this.pid = pid;
+    }
+
     public String getName() {
         return name;
     }

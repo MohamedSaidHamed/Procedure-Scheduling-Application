@@ -4,7 +4,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.Font?>
-<GridPane fx:controller="com.procedure.demo.schedulingapp.uiController.NewPatientViewController"
+<GridPane fx:controller="com.procedure.demo.schedulingapp.guiController.NewPatientViewController"
           xmlns:fx="http://javafx.com/fxml" alignment="center"
           hgap="10" vgap="10">
     <padding>
@@ -27,25 +27,20 @@
             <Insets top="20" right="0" bottom="20" left="0"></Insets>
         </GridPane.margin>
     </Label>
-    <!-- Add Name Label -->
     <Label text="Full Name : " GridPane.columnIndex="0"
            GridPane.rowIndex="1"></Label>
-    <!-- Add Name Text Field -->
     <TextField fx:id="fullNameField" prefHeight="40"
                GridPane.columnIndex="1" GridPane.rowIndex="1"/>
-    <!-- Add Email Label -->
     <Label text="Sex : " GridPane.columnIndex="0"
            GridPane.rowIndex="2"></Label>
     <!-- Add Email Text Field -->
-    <ComboBox fx:id="sexCombo" prefHeight="40" prefWidth="Infinity"
+    <ComboBox fx:id="sexList" prefHeight="40" prefWidth="Infinity"
               GridPane.columnIndex="1" GridPane.rowIndex="2" promptText="Choose"/>
     <!-- Add Password Label -->
     <Label text="Date of Birth : " GridPane.columnIndex="0"
            GridPane.rowIndex="3"></Label>
-    <!-- Add Password Field -->
     <DatePicker fx:id="dob" prefHeight="40" prefWidth="Infinity"
                 GridPane.columnIndex="1" GridPane.rowIndex="3"/>
-    <!-- Add Submit Button -->
     <Button fx:id="submitButton" text="Save"
             prefWidth="200" prefHeight="40" defaultButton="true"
             GridPane.columnIndex="1" GridPane.rowIndex="4"

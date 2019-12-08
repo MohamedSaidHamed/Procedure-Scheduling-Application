@@ -12,15 +12,13 @@ public class RoomService {
     @Autowired
     RoomRepo roomRepo;
 
+    /**
+     * A method that returns a list of all available rooms
+     *
+     * @return
+     */
     public List<Room> getAllRooms() {
         return roomRepo.findAll();
     }
 
-    public List<Room> findAllRoomsBySearch(String name) {
-        return roomRepo.findRoomsByCustomSearch(name);
-    }
-
-    public Room findByName(String name) throws Exception {
-        return roomRepo.findByName(name);
-    }
 }

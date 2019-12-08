@@ -12,6 +12,11 @@ public class DoctorService {
     @Autowired
     DoctorRepo doctorRepo;
 
+    /**
+     * A method that returns a list of all available doctors
+     *
+     * @return
+     */
     public List<Doctor> findAllDoctors() {
         return doctorRepo.findAll();
     }

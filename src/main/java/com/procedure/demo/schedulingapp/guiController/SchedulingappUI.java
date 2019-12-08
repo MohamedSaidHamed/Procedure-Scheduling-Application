@@ -1,4 +1,4 @@
-package com.procedure.demo.schedulingapp.uiController;
+package com.procedure.demo.schedulingapp.guiController;
 
 import com.procedure.demo.schedulingapp.SchedulingappApplication;
 import javafx.application.Application;
