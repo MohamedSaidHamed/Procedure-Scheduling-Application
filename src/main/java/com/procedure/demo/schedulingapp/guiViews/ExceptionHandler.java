@@ -1,4 +1,4 @@
-package com.procedure.demo.schedulingapp.guiController;
+package com.procedure.demo.schedulingapp.guiViews;
 
 import javafx.application.Platform;
 import javafx.scene.control.Alert;

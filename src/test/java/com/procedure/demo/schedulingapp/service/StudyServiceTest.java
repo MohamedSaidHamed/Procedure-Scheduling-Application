@@ -1,7 +1,7 @@
 package com.procedure.demo.schedulingapp.service;
 
 import com.procedure.demo.schedulingapp.entity.*;
-import com.procedure.demo.schedulingapp.guiController.SchedulingappUI;
+import com.procedure.demo.schedulingapp.guiViews.SchedulingappUI;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;

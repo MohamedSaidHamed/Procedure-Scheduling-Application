@@ -1,4 +1,4 @@
-package com.procedure.demo.schedulingapp.guiController;
+package com.procedure.demo.schedulingapp.guiViews;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -28,7 +28,6 @@ public class NewSceneHandler {
      * @throws Exception
      */
     public void sceneHandler(Resource viewResource, Stage stage, ApplicationContext applicationContext) throws Exception {
-        Thread.setDefaultUncaughtExceptionHandler(ExceptionHandler::showError);
         FXMLLoader fxmlLoader = new FXMLLoader(viewResource.getURL());
         fxmlLoader.setControllerFactory(new Callback<Class<?>, Object>() {
             @Override

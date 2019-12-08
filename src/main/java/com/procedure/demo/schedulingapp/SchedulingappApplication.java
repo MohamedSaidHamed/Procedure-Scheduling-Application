@@ -1,6 +1,6 @@
 package com.procedure.demo.schedulingapp;
 
-import com.procedure.demo.schedulingapp.guiController.SchedulingappUI;
+import com.procedure.demo.schedulingapp.guiViews.SchedulingappUI;
 import javafx.application.Application;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 

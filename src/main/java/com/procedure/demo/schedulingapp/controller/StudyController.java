@@ -2,6 +2,7 @@ package com.procedure.demo.schedulingapp.controller;
 
 import com.procedure.demo.schedulingapp.entity.Study;
 import com.procedure.demo.schedulingapp.service.StudyService;
+import com.procedure.demo.schedulingapp.utilities.StudyValidation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -34,10 +35,13 @@ public class StudyController {
 
     /**
      * A method to save new study
+     * It validates the entity required fields before persisting the object into database.
+     * In case of validation violation, an exception will be thrown
      *
      * @param study
      */
     public void updateStudy(Study study) {
+        StudyValidation.validateStudyObject(study);
         studyService.updateStudy(study);
     }
 }

@@ -1,7 +1,6 @@
 package com.procedure.demo.schedulingapp.service;
 
 import com.procedure.demo.schedulingapp.entity.Study;
-import com.procedure.demo.schedulingapp.guiController.ExceptionHandler;
 import com.procedure.demo.schedulingapp.reposotiry.StudyRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
@@ -17,17 +16,10 @@ public class StudyService {
 
     /**
      * A method to save new study into the database.
-     * It validates the entity required fields before persisting the object into database.
-     * In case of validation violation, an exception will be thrown
      *
      * @param study
      */
     public Study updateStudy(Study study) {
-        if (study.getPatient() == null || study.getDoctor() == null || study.getRoom() == null ||
-                study.getPlannedStartTime() == null || study.getStatus() == null ||
-                study.getDescription().equals(null) || study.getDescription().trim().isEmpty()) {
-            throw new ExceptionHandler("Required fields are missing");
-        }
         return studyRepo.save(study);
     }
 

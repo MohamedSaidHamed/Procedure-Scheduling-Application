@@ -4,8 +4,8 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.Font?>
-<?import com.procedure.demo.schedulingapp.guiController.TimeSpinner?>
-<GridPane fx:controller="com.procedure.demo.schedulingapp.guiController.ScheduleProcedureViewController"
+<?import com.procedure.demo.schedulingapp.guiViews.TimeSpinner?>
+<GridPane fx:controller="com.procedure.demo.schedulingapp.guiViews.ScheduleProcedureViewController"
           xmlns:fx="http://javafx.com/fxml" alignment="center"
           hgap="10" vgap="10">
     <padding>

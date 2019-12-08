@@ -1,7 +1,7 @@
 package com.procedure.demo.schedulingapp.service;
 
 import com.procedure.demo.schedulingapp.entity.Patient;
-import com.procedure.demo.schedulingapp.guiController.SchedulingappUI;
+import com.procedure.demo.schedulingapp.guiViews.SchedulingappUI;
 import org.hamcrest.Matchers;
 import org.junit.Assert;
 import org.junit.jupiter.api.BeforeAll;

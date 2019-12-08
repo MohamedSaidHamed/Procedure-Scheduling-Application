@@ -1,7 +1,6 @@
 package com.procedure.demo.schedulingapp.service;
 
 import com.procedure.demo.schedulingapp.entity.Patient;
-import com.procedure.demo.schedulingapp.guiController.ExceptionHandler;
 import com.procedure.demo.schedulingapp.reposotiry.PatientRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -15,16 +14,11 @@ public class PatientService {
 
     /**
      * A method to save new patient into the database.
-     * It validates the entity required fields before persisting the object into database.
-     * In case of validation violation, an exception will be thrown
      *
      * @param patient
      * @return
      */
     public Patient updatePatient(Patient patient) {
-        if (patient.getName().trim().isEmpty()) {
-            throw new ExceptionHandler("Patient name is required");
-        }
         return patientRepo.save(patient);
     }
 

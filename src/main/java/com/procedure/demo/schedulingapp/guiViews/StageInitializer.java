@@ -1,6 +1,6 @@
-package com.procedure.demo.schedulingapp.guiController;
+package com.procedure.demo.schedulingapp.guiViews;
 
-import com.procedure.demo.schedulingapp.guiController.SchedulingappUI.StageReadyEvent;
+import com.procedure.demo.schedulingapp.guiViews.SchedulingappUI.StageReadyEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;

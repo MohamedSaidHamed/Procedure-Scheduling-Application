@@ -4,7 +4,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.Font?>
-<GridPane fx:controller="com.procedure.demo.schedulingapp.guiController.NewPatientViewController"
+<GridPane fx:controller="com.procedure.demo.schedulingapp.guiViews.NewPatientViewController"
           xmlns:fx="http://javafx.com/fxml" alignment="center"
           hgap="10" vgap="10">
     <padding>

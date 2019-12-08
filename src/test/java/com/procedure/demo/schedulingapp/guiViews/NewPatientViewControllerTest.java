@@ -1,4 +1,4 @@
-package com.procedure.demo.schedulingapp.guiController;
+package com.procedure.demo.schedulingapp.guiViews;
 
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;

@@ -1,4 +1,4 @@
-package com.procedure.demo.schedulingapp.guiController;
+package com.procedure.demo.schedulingapp.guiViews;
 
 import com.procedure.demo.schedulingapp.controller.PatientController;
 import com.procedure.demo.schedulingapp.entity.Patient;

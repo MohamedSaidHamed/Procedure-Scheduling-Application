@@ -1,4 +1,4 @@
-package com.procedure.demo.schedulingapp.guiController;
+package com.procedure.demo.schedulingapp.guiViews;
 
 import com.procedure.demo.schedulingapp.controller.DoctorController;
 import com.procedure.demo.schedulingapp.controller.PatientController;
@@ -88,7 +88,7 @@ public class ScheduleProcedureViewController {
         study.setDoctor(doctorField.getSelectionModel().getSelectedItem());
         study.setRoom(roomField.getSelectionModel().getSelectedItem());
         study.setStatus(statusCombo.getSelectionModel().getSelectedItem());
-        if (startDate.getValue() != null && startDate.getValue() != null) {
+        if (startDate.getValue() != null && startTime.getValue() != null) {
             study.setPlannedStartTime(DateUtil.convertToDateViaSqlTimestamp(LocalDateTime.of(startDate.getValue(), startTime.getValue())));
         }
         if (endDate.getValue() != null && endTime.getValue() != null) {

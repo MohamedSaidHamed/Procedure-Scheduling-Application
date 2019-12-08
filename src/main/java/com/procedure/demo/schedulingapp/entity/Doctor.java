@@ -1,6 +1,7 @@
 package com.procedure.demo.schedulingapp.entity;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.util.Objects;
 
 @Entity
@@ -8,6 +9,7 @@ public class Doctor {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+    @NotNull
     @Column(nullable = false)
     private String name;
 

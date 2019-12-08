@@ -1,6 +1,7 @@
 package com.procedure.demo.schedulingapp.entity;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.util.Date;
 import java.util.Objects;
 
@@ -9,24 +10,30 @@ public class Study {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+    @NotNull
     @Lob
     @Column(nullable = false)
     private String description;
+    @NotNull
     @Column(nullable = false)
     @Enumerated(EnumType.STRING)
     private StudyStatus status;
+    @NotNull
     @Column(nullable = false)
     @Temporal(TemporalType.TIMESTAMP)
     private Date plannedStartTime;
     @Column(nullable = true)
     @Temporal(TemporalType.TIMESTAMP)
     private Date plannedEndTime;
+    @NotNull
     @JoinColumn(name = "patient", referencedColumnName = "pid", nullable = false)
     @ManyToOne
     private Patient patient;
+    @NotNull
     @JoinColumn(name = "doctor", referencedColumnName = "id", nullable = false)
     @ManyToOne
     private Doctor doctor;
+    @NotNull
     @JoinColumn(name = "room", referencedColumnName = "id", nullable = false)
     @ManyToOne
     private Room room;
